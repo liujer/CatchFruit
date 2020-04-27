@@ -2,6 +2,7 @@
 #define FRUIT_H
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include <ctime>
 class Fruit
 {
 protected:

@@ -5,6 +5,7 @@
 #include "Apple.h"
 int main()
 {
+	srand(time(NULL));
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Game", sf::Style::Default);
 	window.setSize(sf::Vector2u(800, 800));
 	window.setFramerateLimit(30);
@@ -41,6 +42,7 @@ int main()
 		if (apple.checkHitPlayer(player))
 		{
 			apple.setPosition(sf::Vector2f(window.getSize().x - 400, 0));
+			apple.restart();
 		}
 		else if (apple.checkHitGround(window))
 		{

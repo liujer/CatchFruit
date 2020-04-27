@@ -6,6 +6,16 @@ Apple::Apple(sf::Vector2f position)
 	setSprite();
 	fruitSprite.setScale(sf::Vector2f(3.f, 3.f));
 	points = 10;
+	clock.restart();
+	int right = rand() % 2;
+	if (right == 1)
+	{
+		curveRight = true;
+	}
+	else
+	{
+		curveRight = false;
+	}
 }
 
 void Apple::setSprite()
@@ -17,5 +27,33 @@ void Apple::setSprite()
 
 void Apple::move()
 {
-	fruitSprite.move(sf::Vector2f(0.f, 7.f));
+	if (clock.getElapsedTime().asSeconds() < 0.5)
+	{
+		fruitSprite.move(sf::Vector2f(0.f, 10.f));
+	}
+	else
+	{
+		if (curveRight)
+		{
+			fruitSprite.move(sf::Vector2f(3, 10.f));
+		}
+		else // curveLeft
+		{
+			fruitSprite.move(sf::Vector2f(-3, 10.f));
+		}
+	}
+}
+
+void Apple::restart()
+{
+	clock.restart();
+	int right = rand() % 2;
+	if (right == 1)
+	{
+		curveRight = true;
+	}
+	else
+	{
+		curveRight = false;
+	}
 }
