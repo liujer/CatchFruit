@@ -5,6 +5,7 @@ Apple::Apple(sf::Vector2f position)
 	fruitSprite.setPosition(position);
 	setSprite();
 	fruitSprite.setScale(sf::Vector2f(3.f, 3.f));
+	points = 10;
 }
 
 void Apple::setSprite()
