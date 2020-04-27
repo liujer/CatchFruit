@@ -2,6 +2,7 @@
 #define FRUIT_H
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include <iostream>
 #include <ctime>
 class Fruit
 {
@@ -11,10 +12,9 @@ protected:
 	int points;
 
 public:
-	Fruit();
 	int getPoints();
-	virtual void setSprite() = 0;
-	virtual void move() = 0;
+	virtual void setSprite();
+	virtual void move();
 	void draw(sf::RenderWindow& window);
 	void setPosition(sf::Vector2f position);
 	bool checkHitGround(sf::RenderWindow& window);

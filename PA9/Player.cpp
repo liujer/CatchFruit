@@ -23,6 +23,11 @@ Player::Player(sf::RenderWindow &window)
 
 }
 
+void Player::addPoints(int new_points)
+{
+	points += new_points;
+}
+
 
 void Player::move(sf::Vector2f speed)
 {

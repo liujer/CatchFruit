@@ -1,13 +1,21 @@
 #include "Fruit.h"
 
-Fruit::Fruit()
-{
-	points = 0;
-}
 
 int Fruit::getPoints()
 {
 	return points;
+}
+
+
+void Fruit::setSprite()
+{
+	fruitTexture.loadFromFile("missingTexture.jpg");
+	fruitSprite.setTexture(fruitTexture);
+}
+
+void Fruit::move()
+{
+	fruitSprite.move(0, 0);
 }
 
 void Fruit::draw(sf::RenderWindow& window)
@@ -20,6 +28,10 @@ void Fruit::setPosition(sf::Vector2f position)
 	fruitSprite.setPosition(position);
 }
 
+
+/*
+	checkHitGround() returns true if fruitSprite touches bottom of window, otherwise false
+*/
 bool Fruit::checkHitGround(sf::RenderWindow &window)
 {
 	for (int i = 0; i < window.getSize().x; i++)
@@ -32,6 +44,10 @@ bool Fruit::checkHitGround(sf::RenderWindow &window)
 	return false;
 }
 
+
+/*
+	checkHitPlayer() returns true if fruitSprite touches any part of player, otherwise false
+*/
 bool Fruit::checkHitPlayer(Player& player)
 {
 	if (fruitSprite.getGlobalBounds().intersects(player.getBottomRectBound())) // if fruit hits bottom of basket

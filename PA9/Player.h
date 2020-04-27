@@ -10,9 +10,11 @@ private:
 	sf::RectangleShape bottom;
 	sf::RectangleShape leftSide;
 	sf::RectangleShape rightSide;
+	int points;
 
 public:
 	Player(sf::RenderWindow &window);
+	void addPoints(int new_points);
 	void move(sf::Vector2f);
 	void draw(sf::RenderWindow &window);
 	int getLeftWindowBound();
