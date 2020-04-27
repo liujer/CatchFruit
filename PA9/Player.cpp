@@ -26,9 +26,9 @@ Player::Player(sf::RenderWindow &window)
 
 void Player::move(sf::Vector2f speed)
 {
-	bottom.move(speed.x, speed.y);
-	leftSide.move(speed.x, speed.y);
-	rightSide.move(speed.x, speed.y);
+	bottom.move(speed);
+	leftSide.move(speed);
+	rightSide.move(speed);
 
 }
 
@@ -39,12 +39,28 @@ void Player::draw(sf::RenderWindow& window)
 	window.draw(rightSide);
 }
 
-int Player::getLeftBound()
+
+int Player::getLeftWindowBound()
 {
 	return bottom.getPosition().x;
 }
 
-int Player::getRightBound()
+int Player::getRightWindowBound()
 {
-	return bottom.getPosition().x + bottom.getGlobalBounds().width;
+	return bottom.getPosition().x + bottom.getSize().x;
+}
+
+sf::FloatRect Player::getBottomRectBound()
+{
+	return bottom.getGlobalBounds();
+}
+
+sf::FloatRect Player::getLeftRectBound()
+{
+	return leftSide.getGlobalBounds();
+}
+
+sf::FloatRect Player::getRightRectBound()
+{
+	return rightSide.getGlobalBounds();
 }

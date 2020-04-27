@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include "SFML/Graphics.hpp"
 
 class Player
@@ -12,7 +15,14 @@ public:
 	Player(sf::RenderWindow &window);
 	void move(sf::Vector2f);
 	void draw(sf::RenderWindow &window);
-	int getLeftBound();
-	int getRightBound();
+	int getLeftWindowBound();
+	int getRightWindowBound();
+	sf::FloatRect getBottomRectBound();
+	sf::FloatRect getLeftRectBound();
+	sf::FloatRect getRightRectBound();
+	
 };
+
+#endif 
+
 
