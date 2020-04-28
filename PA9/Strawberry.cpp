@@ -1,7 +1,7 @@
 #include "Strawberry.h"
 
 /*
-	Apple()
+	Strawberry()
 	Precondition: render window must be at least 800x800
 	Postconditions:
 	- Apple is now worth 10 points
@@ -22,7 +22,7 @@ Strawberry::Strawberry()
 }
 
 /*
-	Apple::setSprite()
+	Strawberry::setSprite()
 
 	Postconditions:
 	- FruitTexture is set to "Stawberry.png" from local folder
@@ -37,7 +37,7 @@ void Strawberry::setSprite()
 }
 
 /*
-	Apple::move()
+	Strawberry::move()
 
 	Postconditions:
 	- Using internal clock, sprite will move downwards 10 units if less

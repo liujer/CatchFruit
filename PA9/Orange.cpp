@@ -1,7 +1,7 @@
 #include "Orange.h"
 
 /*
-	Apple()
+	Orange()
 	Precondition: render window must be at least 800x800
 	Postconditions:
 	- Apple is now worth 10 points
@@ -22,7 +22,7 @@ Orange::Orange()
 }
 
 /*
-	Apple::setSprite()
+	Orange::setSprite()
 
 	Postconditions:
 	- FruitTexture is set to "Apple.png" from local folder
@@ -37,7 +37,7 @@ void Orange::setSprite()
 }
 
 /*
-	Apple::move()
+	Orange::move()
 
 	Postconditions:
 	- Using internal clock, sprite will move downwards 10 units if less

@@ -1,7 +1,7 @@
 #include "Melon.h"
 
 /*
-	Apple()
+	Melon()
 	Precondition: render window must be at least 800x800
 	Postconditions:
 	- Apple is now worth 10 points

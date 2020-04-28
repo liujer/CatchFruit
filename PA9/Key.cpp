@@ -1,7 +1,7 @@
 #include "Key.h"
 
 /*
-	Apple()
+	Key()
 	Precondition: render window must be at least 800x800
 	Postconditions:
 	- Apple is now worth 10 points
@@ -22,7 +22,7 @@ Key::Key()
 }
 
 /*
-	Apple::setSprite()
+	Key::setSprite()
 
 	Postconditions:
 	- FruitTexture is set to "Apple.png" from local folder
@@ -37,7 +37,7 @@ void Key::setSprite()
 }
 
 /*
-	Apple::move()
+	Key::move()
 
 	Postconditions:
 	- Using internal clock, sprite will move downwards 10 units if less
