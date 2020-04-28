@@ -6,6 +6,9 @@
 #include "Apple.h"
 #include "Galaxian.h"
 #include "Strawberry.h"
+#include "Melon.h"
+#include "Key.h"
+#include "Orange.h"
 #include <vector>
 int main()
 {
@@ -20,7 +23,7 @@ int main()
 	sf::Clock generatingInterval;
 	int interval = -1;
 	bool generateANewFruit = true;
-	int numberOfFruits = 3;
+	int numberOfFruits = 6;
 	sf::Event event;
 	
 	while (window.isOpen())
@@ -60,6 +63,26 @@ int main()
 				interval = randDouble(2500, 3000);
 
 			}
+			else if (systemClock.getElapsedTime().asSeconds() > 30 && systemClock.getElapsedTime().asSeconds() < 60) // First difficulty based on time elapsed in game
+			{
+				interval = randDouble(2000, 2500);
+
+			}
+			else if (systemClock.getElapsedTime().asSeconds() > 60 && systemClock.getElapsedTime().asSeconds() < 90) // First difficulty based on time elapsed in game
+			{
+				interval = randDouble(1500, 2000);
+
+			}
+			else if (systemClock.getElapsedTime().asSeconds() > 90 && systemClock.getElapsedTime().asSeconds() < 120) // First difficulty based on time elapsed in game
+			{
+				interval = randDouble(1000, 1500);
+
+			}
+			else if (systemClock.getElapsedTime().asSeconds() > 120) // First difficulty based on time elapsed in game
+			{
+				interval = randDouble(100, 1000);
+
+			}
 			// ..
 			// More difficulties can be added
 
@@ -88,6 +111,24 @@ int main()
 				{
 					Strawberry* new_sb = new Strawberry;
 					existingFruits.push_back(new_sb);
+					break;
+				}
+				case 3: // Add a Melon
+				{
+					Melon* new_melon = new Melon;
+					existingFruits.push_back(new_melon);
+					break;
+				}
+				case 4: // Add a Key
+				{
+					Key* new_key = new Key;
+					existingFruits.push_back(new_key);
+					break;
+				}
+				case 5: // Add an Orange
+				{
+					Orange* new_orange = new Orange;
+					existingFruits.push_back(new_orange);
 					break;
 				}
 
