@@ -4,8 +4,8 @@
 #include "Player.h"
 #include "Fruit.h"
 #include "Apple.h"
+#include "Galaxian.h"
 #include <vector>
-
 int main()
 {
 	srand(time(NULL));
@@ -19,9 +19,9 @@ int main()
 	sf::Clock generatingInterval;
 	int interval = -1;
 	bool generateANewFruit = true;
-	int numberOfFruits = 1;
+	int numberOfFruits = 2;
 	sf::Event event;
-
+	
 	while (window.isOpen())
 	{
 		
@@ -69,12 +69,22 @@ int main()
 		{
 			// Add a random fruit to the fruits on the screen
 			int randNo = rand() % numberOfFruits;
-			if (randNo == 0) // Add an apple
+			switch (randNo)
 			{
-				Apple *new_apple = new Apple;
-				existingFruits.push_back(new_apple);
+				case 0: // Add an apple
+				{
+					Apple* new_apple = new Apple;
+					existingFruits.push_back(new_apple);
+					break;
+				}
+				case 1: // Add a Galaxian
+				{
+					Galaxian* new_galaxian = new Galaxian;
+					existingFruits.push_back(new_galaxian);
+					break;
+				}
+
 			}
-			
 			generatingInterval.restart();
 			generateANewFruit = true;
 		}
@@ -88,11 +98,14 @@ int main()
 			existingFruits[i]->move();
 			if (existingFruits[i]->checkHitPlayer(player))
 			{
+				player.addPoints(existingFruits[i]->getPoints());
 				it = existingFruits.erase(it); // removes fruit from being used again
+				i--;
 			}
 			else if (existingFruits[i]->checkHitGround(window))
 			{
 				it = existingFruits.erase(it); // removes fruit from being used again
+				i--;
 			}
 			else
 			{
@@ -100,6 +113,7 @@ int main()
 				++it;
 			}
 		}
+		existingFruits.shrink_to_fit();
 		
 		player.draw(window);
 		window.display();

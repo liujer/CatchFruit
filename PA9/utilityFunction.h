@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 double randDouble(int x, int y);
-
+double angleToRadians(double angle);
 
 
 #endif

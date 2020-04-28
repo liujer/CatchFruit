@@ -17,3 +17,14 @@ double randDouble(int x, int y)
 	return randInt + randHundredth / 100;
 }
 
+/*
+	angleToRadians()
+
+	Postcondition:
+	- Returns the angle in radians using 3.14159 as PI 
+*/
+double angleToRadians(double angle)
+{
+	return angle * 3.14159 / 180;
+}
+
