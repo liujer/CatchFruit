@@ -5,6 +5,7 @@
 #include "Fruit.h"
 #include "Apple.h"
 #include "Galaxian.h"
+#include "Strawberry.h"
 #include <vector>
 int main()
 {
@@ -19,7 +20,7 @@ int main()
 	sf::Clock generatingInterval;
 	int interval = -1;
 	bool generateANewFruit = true;
-	int numberOfFruits = 2;
+	int numberOfFruits = 3;
 	sf::Event event;
 	
 	while (window.isOpen())
@@ -81,6 +82,12 @@ int main()
 				{
 					Galaxian* new_galaxian = new Galaxian;
 					existingFruits.push_back(new_galaxian);
+					break;
+				}
+				case 2: // Add a Galaxian
+				{
+					Strawberry* new_sb = new Strawberry;
+					existingFruits.push_back(new_sb);
 					break;
 				}
 
