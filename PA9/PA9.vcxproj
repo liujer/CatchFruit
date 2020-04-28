@@ -134,6 +134,7 @@
     <ClCompile Include="Galaxian.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Strawberry.cpp" />
     <ClCompile Include="utilityFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="Galaxian.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Strawberry.h" />
     <ClInclude Include="utilityFunction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

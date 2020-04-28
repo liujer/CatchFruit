@@ -84,7 +84,7 @@ int main()
 					existingFruits.push_back(new_galaxian);
 					break;
 				}
-				case 2: // Add a Galaxian
+				case 2: // Add a Strawberry
 				{
 					Strawberry* new_sb = new Strawberry;
 					existingFruits.push_back(new_sb);
