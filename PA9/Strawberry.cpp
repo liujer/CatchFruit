@@ -25,7 +25,7 @@ Strawberry::Strawberry()
 	Apple::setSprite()
 
 	Postconditions:
-	- FruitTexture is set to "Apple.png" from local folder
+	- FruitTexture is set to "Stawberry.png" from local folder
 	- FruitSprite texture is set to FruitTexture
 
 */
