@@ -11,6 +11,7 @@ private:
 	sf::RectangleShape leftSide;
 	sf::RectangleShape rightSide;
 	int points;
+	int lives;
 
 public:
 	Player(sf::RenderWindow &window);
@@ -22,6 +23,9 @@ public:
 	sf::FloatRect getBottomRectBound();
 	sf::FloatRect getLeftRectBound();
 	sf::FloatRect getRightRectBound();
+	void subtractLives(int numlives);
+	int getLives();
+	int getPoints();
 	
 };
 

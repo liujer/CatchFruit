@@ -36,6 +36,18 @@
     <ClCompile Include="Strawberry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TopBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Melon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Orange.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -54,6 +66,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Strawberry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TopBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Melon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Orange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

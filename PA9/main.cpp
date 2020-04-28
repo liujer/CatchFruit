@@ -2,6 +2,7 @@
 #include <iostream>
 #include "utilityFunction.h"
 #include "Player.h"
+#include "TopBar.h"
 #include "Fruit.h"
 #include "Apple.h"
 #include "Galaxian.h"
@@ -20,11 +21,13 @@ int main()
 	std::vector <Fruit*> existingFruits;
 
 	sf::Clock systemClock;
+	TopBar bar;
 	sf::Clock generatingInterval;
 	int interval = -1;
 	bool generateANewFruit = true;
 	int numberOfFruits = 6;
 	sf::Event event;
+	
 	
 	while (window.isOpen())
 	{
@@ -152,6 +155,7 @@ int main()
 			}
 			else if (existingFruits[i]->checkHitGround(window))
 			{
+				player.subtractLives(1);
 				it = existingFruits.erase(it); // removes fruit from being used again
 				i--;
 			}
@@ -162,8 +166,8 @@ int main()
 			}
 		}
 		existingFruits.shrink_to_fit();
-		
 		player.draw(window);
+		bar.draw(player, window);
 		window.display();
 	}
 

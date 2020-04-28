@@ -132,17 +132,25 @@
     <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="Galaxian.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Melon.cpp" />
+    <ClCompile Include="Orange.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Strawberry.cpp" />
+    <ClCompile Include="TopBar.cpp" />
     <ClCompile Include="utilityFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="Galaxian.h" />
+    <ClInclude Include="Key.h" />
+    <ClInclude Include="Melon.h" />
+    <ClInclude Include="Orange.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Strawberry.h" />
+    <ClInclude Include="TopBar.h" />
     <ClInclude Include="utilityFunction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

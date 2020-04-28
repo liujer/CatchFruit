@@ -3,7 +3,8 @@
 Player::Player(sf::RenderWindow &window)
 {
 	playerTexture.loadFromFile("BasketTexture.jpg");
-
+	lives = 3;
+	points = 0;
 	bottom.setSize(sf::Vector2f(200.f, 15.f));
 	bottom.setTexture(&playerTexture);
 
@@ -68,4 +69,19 @@ sf::FloatRect Player::getLeftRectBound()
 sf::FloatRect Player::getRightRectBound()
 {
 	return rightSide.getGlobalBounds();
+}
+
+void Player::subtractLives(int numlives)
+{
+	lives -= numlives;
+}
+
+int Player::getLives()
+{
+	return lives;
+}
+
+int Player::getPoints()
+{
+	return points;
 }
