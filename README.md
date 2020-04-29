@@ -1,5 +1,5 @@
 # CatchFruit
-Zhizhen Liu
-Stef Pamboukas
-Conner Ness
+Zhizhen Liu,
+Stef Pamboukas,
+Conner Ness,
 Andrew Smith
