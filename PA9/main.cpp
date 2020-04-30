@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "utilityFunction.h"
+#include "LoseScreen.h"
 #include "Player.h"
 #include "TopBar.h"
 #include "Fruit.h"
@@ -16,6 +17,8 @@ int main()
 	srand(time(NULL));
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Catch Fruit", sf::Style::Default);
 	window.setFramerateLimit(30);
+
+
 	Player player(window);
 
 	std::vector <Fruit*> existingFruits;
@@ -27,77 +30,85 @@ int main()
 	bool generateANewFruit = true;
 	int numberOfFruits = 6;
 	sf::Event event;
+	LoseScreen loseScreen;
 	
 	
 	while (window.isOpen())
 	{
-		
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-				window.close();			
-		}
-
-		// Movement
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		{
-			if (player.getRightWindowBound() < window.getSize().x) // checks out of bound to right
-			{
-
-				player.move(sf::Vector2f(10.f, 0.f));
-			}
-
+				window.close();
 			
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-			if (player.getLeftWindowBound() > 0) // checks out of bound to left
-			{
-				player.move(sf::Vector2f(-10.f, 0.f));
-			}
+		if (player.getLives() <= 0)
+		{			
+			window.clear();			
+			loseScreen.draw(window);
+			window.display();
 		}
+		else {
 
-		// Generating fruits
 
-		if (generateANewFruit) // Will add a fruit to the "queue"
-		{
-			if (systemClock.getElapsedTime().asSeconds() < 10) // First difficulty based on time elapsed in game
+			// Movement
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 			{
-				interval = randDouble(2500, 3000);
+				if (player.getRightWindowBound() < window.getSize().x) // checks out of bound to right
+				{
+
+					player.move(sf::Vector2f(10.f, 0.f));
+				}
+
 
 			}
-			else if (systemClock.getElapsedTime().asSeconds() > 30 && systemClock.getElapsedTime().asSeconds() < 60) // First difficulty based on time elapsed in game
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
-				interval = randDouble(2000, 2500);
-
+				if (player.getLeftWindowBound() > 0) // checks out of bound to left
+				{
+					player.move(sf::Vector2f(-10.f, 0.f));
+				}
 			}
-			else if (systemClock.getElapsedTime().asSeconds() > 60 && systemClock.getElapsedTime().asSeconds() < 90) // First difficulty based on time elapsed in game
-			{
-				interval = randDouble(1500, 2000);
 
+			// Generating fruits
+
+			if (generateANewFruit) // Will add a fruit to the "queue"
+			{
+				if (systemClock.getElapsedTime().asSeconds() < 10) // First difficulty based on time elapsed in game
+				{
+					interval = randDouble(2500, 3000);
+
+				}
+				else if (systemClock.getElapsedTime().asSeconds() > 30 && systemClock.getElapsedTime().asSeconds() < 60) // Second difficulty
+				{
+					interval = randDouble(2000, 2500);
+
+				}
+				else if (systemClock.getElapsedTime().asSeconds() > 60 && systemClock.getElapsedTime().asSeconds() < 90) // Third difficulty
+				{
+					interval = randDouble(1500, 2000);
+
+				}
+				else if (systemClock.getElapsedTime().asSeconds() > 90 && systemClock.getElapsedTime().asSeconds() < 120) // Fourth difficulty
+				{
+					interval = randDouble(1000, 1500);
+
+				}
+				else if (systemClock.getElapsedTime().asSeconds() > 120) // Last difficulty
+				{
+					interval = randDouble(100, 1000);
+
+				}
+
+
+				generateANewFruit = false; // Prevents fruit from being generated every frame
 			}
-			else if (systemClock.getElapsedTime().asSeconds() > 90 && systemClock.getElapsedTime().asSeconds() < 120) // First difficulty based on time elapsed in game
+			else if (generatingInterval.getElapsedTime().asMilliseconds() >= interval - 100 &&
+				generatingInterval.getElapsedTime().asMilliseconds() < interval + 100) // account for inaccuracy
 			{
-				interval = randDouble(1000, 1500);
-
-			}
-			else if (systemClock.getElapsedTime().asSeconds() > 120) // First difficulty based on time elapsed in game
-			{
-				interval = randDouble(100, 1000);
-
-			}
-			// ..
-			// More difficulties can be added
-
-			generateANewFruit = false; // Prevents fruit from being generated every frame
-		}
-		else if (generatingInterval.getElapsedTime().asMilliseconds() >= interval - 100 && 
-			generatingInterval.getElapsedTime().asMilliseconds() < interval + 100) // account for inaccuracy
-		{
-			// Add a random fruit to the fruits on the screen
-			int randNo = rand() % numberOfFruits;
-			switch (randNo)
-			{
+				// Add a random fruit to the fruits on the screen
+				int randNo = rand() % numberOfFruits;
+				switch (randNo)
+				{
 				case 0: // Add an apple
 				{
 					Apple* new_apple = new Apple;
@@ -135,40 +146,46 @@ int main()
 					break;
 				}
 
+				}
+				generatingInterval.restart();
+				generateANewFruit = true;
 			}
-			generatingInterval.restart();
-			generateANewFruit = true;
-		}
-		window.clear();
+			window.clear();
 
-		// Draw everything
+			// Draw everything
 
-		int i = 0; // Allows for second variable in for loop, used for accessing vector members
-		for (auto it = existingFruits.begin(); it != existingFruits.end(); i++)
-		{
-			existingFruits[i]->move();
-			if (existingFruits[i]->checkHitPlayer(player))
+			int i = 0; // Allows for second variable in for loop, used for accessing vector members
+			for (auto it = existingFruits.begin(); it != existingFruits.end(); i++)
 			{
-				player.addPoints(existingFruits[i]->getPoints());
-				it = existingFruits.erase(it); // removes fruit from being used again
-				i--;
+				existingFruits[i]->move();
+				if (existingFruits[i]->checkHitPlayer(player))
+				{
+					player.addPoints(existingFruits[i]->getPoints());
+					it = existingFruits.erase(it); // removes fruit from being used again
+					i--;
+				}
+				else if (existingFruits[i]->checkHitGround(window))
+				{
+					player.subtractLives(1);
+					it = existingFruits.erase(it); // removes fruit from being used again
+					i--;
+				}
+				else // Draw fruit to screen and add to iterator
+				{
+					existingFruits[i]->draw(window);
+					++it;
+				}
 			}
-			else if (existingFruits[i]->checkHitGround(window))
+
+			player.draw(window);
+			bar.draw(player, window);
+			if (player.getLives() <= 0)
 			{
-				player.subtractLives(1);
-				it = existingFruits.erase(it); // removes fruit from being used again
-				i--;
+				loseScreen.setTexture(window);
 			}
-			else
-			{
-				existingFruits[i]->draw(window);
-				++it;
-			}
+			window.display();
+			
 		}
-		existingFruits.shrink_to_fit();
-		player.draw(window);
-		bar.draw(player, window);
-		window.display();
 	}
 
 	return 0;

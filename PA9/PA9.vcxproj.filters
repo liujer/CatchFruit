@@ -48,6 +48,9 @@
     <ClCompile Include="Orange.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LoseScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Orange.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoseScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

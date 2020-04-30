@@ -22,6 +22,10 @@ TopBar::TopBar()
 	minutes = 0;
 }
 
+/*
+	minutePassed()
+	Returns true if clock has elapsed 60 seconds or more, false if not
+*/
 bool TopBar::minutePassed()
 {
 	if (clock.getElapsedTime().asSeconds() >= 60)
@@ -34,6 +38,10 @@ bool TopBar::minutePassed()
 	}
 }
 
+/*
+	getSeconds()
+	Returns the seconds of clock as an int, flooring int if necessary
+*/
 int TopBar::getSeconds()
 {
 	return floor(clock.getElapsedTime().asSeconds());

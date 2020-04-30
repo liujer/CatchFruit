@@ -133,6 +133,7 @@
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="Galaxian.cpp" />
     <ClCompile Include="Key.cpp" />
+    <ClCompile Include="LoseScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Melon.cpp" />
     <ClCompile Include="Orange.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="Galaxian.h" />
     <ClInclude Include="Key.h" />
+    <ClInclude Include="LoseScreen.h" />
     <ClInclude Include="Melon.h" />
     <ClInclude Include="Orange.h" />
     <ClInclude Include="Player.h" />
