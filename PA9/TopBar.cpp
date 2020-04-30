@@ -16,7 +16,7 @@ TopBar::TopBar()
 	elaspedTime.setFont(pointsFont);
 	elaspedTime.setFillColor(sf::Color::White);
 	elaspedTime.setCharacterSize(50);
-	elaspedTime.setPosition(sf::Vector2f(300, 50));
+	elaspedTime.setPosition(sf::Vector2f(370, 50));
 
 	clock.restart();
 	minutes = 0;
