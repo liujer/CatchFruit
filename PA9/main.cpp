@@ -41,7 +41,10 @@ int main()
 			while (window.pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed)
+				{
+					playAgain = false;
 					window.close();
+				}
 
 			}
 			if (player.getLives() <= 0)
