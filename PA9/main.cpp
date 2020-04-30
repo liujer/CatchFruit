@@ -11,6 +11,8 @@
 #include "Melon.h"
 #include "Key.h"
 #include "Orange.h"
+#include "Bananna.h"
+#include "Bell.h"
 #include <vector>
 int main()
 {
@@ -29,7 +31,7 @@ int main()
 		sf::Clock generatingInterval;
 		int interval = -1;
 		bool generateANewFruit = true;
-		int numberOfFruits = 6;
+		int numberOfFruits = 8;
 		sf::Event event;
 		LoseScreen loseScreen;
 
@@ -118,6 +120,7 @@ int main()
 				else if (generatingInterval.getElapsedTime().asMilliseconds() >= interval - 100 &&
 					generatingInterval.getElapsedTime().asMilliseconds() < interval + 100) // account for inaccuracy
 				{
+					
 					// Add a random fruit to the fruits on the screen
 					int randNo = rand() % numberOfFruits;
 					switch (randNo)
@@ -156,6 +159,18 @@ int main()
 					{
 						Orange* new_orange = new Orange;
 						existingFruits.push_back(new_orange);
+						break;
+					}
+					case 6: // Add a Bananna
+					{
+						Bananna* new_nana = new Bananna;
+						existingFruits.push_back(new_nana);
+						break;
+					}
+					case 7: // Add an Bell
+					{
+						Bell* new_bell = new Bell;
+						existingFruits.push_back(new_bell);
 						break;
 					}
 
