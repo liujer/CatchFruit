@@ -1,15 +1,15 @@
 #include "Orange.h"
 
 /*
-	Orange()
+	Orange::Orange()
+
 	Precondition: render window must be at least 800x800
+
 	Postconditions:
-	- Apple is now worth 10 points
 	- FruitSprite is set to a random position on the top of window
 	- FruitSprite texture is set using FruitTexture
 	- FruitSprite is scaled to be 3x original size
-	- Apple will curve randomly to the left or right after 0.5 seconds
-	- An internal clock is set for move()
+
 */
 Orange::Orange()
 {
@@ -18,14 +18,16 @@ Orange::Orange()
 	setSprite();
 	fruitSprite.setScale(sf::Vector2f(3.f, 3.f));
 	points = 5;
-	clock.restart();
 }
 
 /*
 	Orange::setSprite()
 
+	Precondition:
+	- "Orange.png" must exist in local folder
+
 	Postconditions:
-	- FruitTexture is set to "Apple.png" from local folder
+	- FruitTexture is set to "Orange.png" from local folder
 	- FruitSprite texture is set to FruitTexture
 
 */
@@ -40,9 +42,7 @@ void Orange::setSprite()
 	Orange::move()
 
 	Postconditions:
-	- Using internal clock, sprite will move downwards 10 units if less
-	than 0.5 seconds have passed, otherwise will move in either right
-	or left direction 3 units depending on boolean variable curveRight
+	- fruitSprite will be translated 15 units down
 */
 void Orange::move()
 {

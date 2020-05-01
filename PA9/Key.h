@@ -1,4 +1,6 @@
-#pragma once
+#ifndef KEY_H
+#define KEY_H
+
 #include "Fruit.h"
 
 class Key : public Fruit
@@ -12,3 +14,5 @@ public:
 	void move();
 
 };
+
+#endif // !KEY_H

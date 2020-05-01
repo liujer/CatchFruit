@@ -1,5 +1,14 @@
 #include "LoseScreen.h"
 
+/*
+	LoseScreen::LoseScreen()
+
+	Preconditions:
+	- Render window must be 800x800
+
+	Postconditions: 
+	- Sets the text, font, size, color, and position of three sf::Text objects
+*/
 LoseScreen::LoseScreen()
 {
 	textFont.loadFromFile("DS-DIGI.ttf");
@@ -26,6 +35,17 @@ LoseScreen::LoseScreen()
 
 }
 
+/*
+	LoseScreen::setTexture()
+
+	Preconditions:
+	- window size of the window in the function parameter must match 
+	the window used to draw the screen
+
+	Postconditions:
+	- Takes a "creenshot" of the window and uses it as the 
+	texture for the screen sprite
+*/
 void LoseScreen::setTexture(sf::RenderWindow& window)
 {
 	sf::Vector2u windowSize = window.getSize();
@@ -35,6 +55,13 @@ void LoseScreen::setTexture(sf::RenderWindow& window)
 
 }
 
+/*
+	LoseScreen::playAgain()
+
+	Postconditions:
+	- Highlights the  playAgain text if mouse is hovered over the text
+	- Returns true if text is clicked, false if not  
+*/
 bool LoseScreen::playAgain(sf::RenderWindow& window)
 {
 	sf::Vector2i localPosition = sf::Mouse::getPosition(window);
@@ -56,6 +83,14 @@ bool LoseScreen::playAgain(sf::RenderWindow& window)
 	}
 }
 
+
+/*
+	LoseScreen::exit()
+
+	Postconditions:
+	- Highlights the exit text if mouse is hovered over the text
+	- Returns true if text is clicked, false if not
+*/
 bool LoseScreen::exit(sf::RenderWindow& window)
 {
 	sf::Vector2i localPosition = sf::Mouse::getPosition(window);
@@ -77,6 +112,14 @@ bool LoseScreen::exit(sf::RenderWindow& window)
 	}
 }
 
+
+/*
+	LoseScreen::draw()
+
+	Preconditions:
+	- window size of the window in the function parameter must match
+	the window used to set texture of screen
+*/
 void LoseScreen::draw(sf::RenderWindow& window)
 {
 	window.draw(screen);

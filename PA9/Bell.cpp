@@ -1,12 +1,14 @@
 #include "Bell.h"
 
 /*
-	Bell()
+	Bell::Bell()
 
 	Preconditions:
 	- Window must be 800x800 or smaller for fruit to be hidden
+
 	Postconditions:
-	- Galaxian sprite is set using fruitTexture and position is set to the left or right of the window, rotation is set accordingly
+	- Points given is 15
+	- Bell sprite is set using fruitTexture and position is set to the left or right of the window, rotation is set accordingly
 	- Sprite is scaled by a factor of three
 	- Sprite origin is set to center of sprite instead of top left corner
 	- Clock is restarted
@@ -38,6 +40,18 @@ Bell::Bell()
 	clock.restart();
 }
 
+
+/*
+	Bell::setSprite()
+
+	Precondition:
+	- "Bell.png" must exist in local folder
+
+
+	Postconditions:
+	- fruitTexture is loaded from "Bell.png"
+	- fruitSprite texture is set using fruitTexture
+*/
 void Bell::setSprite()
 {
 	fruitTexture.loadFromFile("Bell.png");

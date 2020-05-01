@@ -130,6 +130,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="Bananna.cpp" />
+    <ClCompile Include="Bell.cpp" />
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="Galaxian.cpp" />
     <ClCompile Include="Key.cpp" />
@@ -144,6 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
+    <ClInclude Include="Bananna.h" />
+    <ClInclude Include="Bell.h" />
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="Galaxian.h" />
     <ClInclude Include="Key.h" />

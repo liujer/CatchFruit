@@ -1,14 +1,16 @@
-#pragma once
+#ifndef ORANGE_H
+#define ORANGE_H
+
 #include "Fruit.h"
 
 class Orange : public Fruit
 {
-private:
-	sf::Clock clock;
-	bool curveRight;
+
 public:
 	Orange();
 	void setSprite();
 	void move();
 
 };
+
+#endif // !ORANGE_H

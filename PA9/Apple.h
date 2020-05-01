@@ -1,4 +1,6 @@
-#pragma once
+#ifndef APPLE_H
+#define APPLE_H
+
 #include "Fruit.h"
 
 class Apple : public Fruit
@@ -13,3 +15,4 @@ public:
 
 };
 
+#endif // !APPLE_H

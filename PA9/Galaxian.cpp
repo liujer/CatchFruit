@@ -1,11 +1,13 @@
 #include "Galaxian.h"
 
 /*
-	Galaxian()
+	Galaxian::Galaxian()
 
 	Preconditions:
 	- Window must be 800x800 or smaller for fruit to be hidden
-	Postconditions:
+
+	Postconditions:	
+	- Points given is 15
 	- Galaxian sprite is set using fruitTexture and position is set to the left or right of the window, rotation is set accordingly
 	- Sprite is scaled by a factor of three
 	- Sprite origin is set to center of sprite instead of top left corner
@@ -17,7 +19,7 @@ Galaxian::Galaxian()
 	fruitSprite.setScale(sf::Vector2f(3.f, 3.f));
 	int randNo = rand() % 2;
 	int height = height = rand() % 200 + 200;
-	points = 10;
+	points = 15;
 	if (randNo == 1)
 	{
 		startFromLeft = true;
@@ -40,6 +42,16 @@ Galaxian::Galaxian()
 	clock.restart();
 }
 
+/*
+	Galaxian::setSprite()
+
+	Precondition:
+	- "Galaxian.png" must exist in local folder
+
+	Postconditions:
+	- fruitTexture is loaded from "Galaxian.png"
+	- fruitSprite texture is set using fruitTexture
+*/
 void Galaxian::setSprite()
 {
 	fruitTexture.loadFromFile("Galaxian.png");

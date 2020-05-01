@@ -1,10 +1,12 @@
 #include "Apple.h"
 
 /*
-	Apple()
+	Apple::Apple()
+
 	Precondition: render window must be at least 800x800
+
 	Postconditions: 
-	- Apple is now worth 10 points
+	- Apple is now worth 5 points
 	- FruitSprite is set to a random position on the top of window
 	- FruitSprite texture is set using FruitTexture
 	- FruitSprite is scaled to be 3x original size
@@ -17,7 +19,7 @@ Apple::Apple()
 	fruitSprite.setPosition(sf::Vector2f(randPos, 0));
 	setSprite();
 	fruitSprite.setScale(sf::Vector2f(3.f, 3.f));
-	points = 10;
+	points = 5;
 	clock.restart();
 	int right = rand() % 2;
 	if (right == 1)
@@ -32,6 +34,9 @@ Apple::Apple()
 
 /*
 	Apple::setSprite()
+
+	Precondition:
+	- "Apple.png" must exist in local folder
 
 	Postconditions:
 	- FruitTexture is set to "Apple.png" from local folder

@@ -1,15 +1,14 @@
 #include "Strawberry.h"
 
 /*
-	Strawberry()
+	Strawberry::Strawberry()
+
 	Precondition: render window must be at least 800x800
+
 	Postconditions:
-	- Apple is now worth 10 points
 	- FruitSprite is set to a random position on the top of window
 	- FruitSprite texture is set using FruitTexture
 	- FruitSprite is scaled to be 3x original size
-	- Apple will curve randomly to the left or right after 0.5 seconds
-	- An internal clock is set for move()
 */
 Strawberry::Strawberry()
 {
@@ -18,11 +17,13 @@ Strawberry::Strawberry()
 	setSprite();
 	fruitSprite.setScale(sf::Vector2f(3.f, 3.f));
 	points = 5;
-	clock.restart();
 }
 
 /*
 	Strawberry::setSprite()
+
+	Precondition:
+	- "Strawberry.png" must exist in local folder
 
 	Postconditions:
 	- FruitTexture is set to "Stawberry.png" from local folder
@@ -40,9 +41,7 @@ void Strawberry::setSprite()
 	Strawberry::move()
 
 	Postconditions:
-	- Using internal clock, sprite will move downwards 10 units if less
-	than 0.5 seconds have passed, otherwise will move in either right
-	or left direction 3 units depending on boolean variable curveRight
+	- Sprite will be translated downwards by 10 units
 */
 void Strawberry::move()
 {

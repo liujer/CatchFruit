@@ -7,6 +7,16 @@ int Fruit::getPoints()
 }
 
 
+/*
+	Fruit::setSprite()
+
+	Precondition:
+	- "missingTexture.png" must exist in local folder
+
+	Postconditions:
+	- fruitTexture is loaded from "missingTexture.png", as fruit acts like an abstract class
+	- fruitSprite texture is set using fruitTexture
+*/
 void Fruit::setSprite()
 {
 	fruitTexture.loadFromFile("missingTexture.jpg");

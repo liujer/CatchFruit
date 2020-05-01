@@ -1,5 +1,16 @@
 #include "Player.h"
 
+/*
+	Player::Player()
+	
+	Precondition:
+	- "BasketTexture.jpg" must exist in local folder
+
+	Postconditions:
+	- Private variables lives set to 3, points set to 0
+	- Sets the texture of the three components of the player to be from "BasketTexture.jpg"
+	- Sets position of the three components
+*/
 Player::Player(sf::RenderWindow &window)
 {
 	playerTexture.loadFromFile("BasketTexture.jpg");

@@ -16,7 +16,8 @@
 #include <vector>
 int main()
 {
-	srand(time(NULL));
+	srand(time(NULL)); // Generate a random seed 
+
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Catch Fruit", sf::Style::Default);
 	window.setFramerateLimit(30);
 	bool playAgain = true;
@@ -47,7 +48,7 @@ int main()
 				}
 
 			}
-			if (player.getLives() <= 0)
+			if (player.getLives() <= 0) // Lose screen is displayed
 			{
 				window.clear();
 				if (loseScreen.playAgain(window))
@@ -65,7 +66,7 @@ int main()
 				}
 				
 			}
-			else {
+			else { // Continue game
 
 
 				// Movement
@@ -170,7 +171,7 @@ int main()
 						existingFruits.push_back(new_nana);
 						break;
 					}
-					case 7: // Add an Bell
+					case 7: // Add a Bell
 					{
 						Bell* new_bell = new Bell;
 						existingFruits.push_back(new_bell);
@@ -192,12 +193,15 @@ int main()
 					if (existingFruits[i]->checkHitPlayer(player))
 					{
 						player.addPoints(existingFruits[i]->getPoints());
+						delete existingFruits[i];
 						it = existingFruits.erase(it); // removes fruit from being used again
 						i--;
 					}
 					else if (existingFruits[i]->checkHitGround(window))
 					{
 						player.subtractLives(1);
+						delete existingFruits[i];
+
 						it = existingFruits.erase(it); // removes fruit from being used again
 						i--;
 					}
@@ -210,9 +214,10 @@ int main()
 
 				player.draw(window);
 				bar.draw(player, window);
+
 				if (player.getLives() <= 0)
 				{
-					loseScreen.setTexture(window);
+					loseScreen.setTexture(window); // takes a screenshot of current screen
 				}
 				window.display();
 
