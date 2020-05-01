@@ -14,6 +14,7 @@
 #include "Bananna.h"
 #include "Bell.h"
 #include <vector>
+#include "Test.h"
 int main()
 {
 	srand(time(NULL)); // Generate a random seed 
@@ -86,6 +87,37 @@ int main()
 					{
 						player.move(sf::Vector2f(-10.f, 0.f));
 					}
+				}
+
+				// Test Cases
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+				{
+					test_game();
+
+				}
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
+				{
+					test_double_collision();
+
+				}
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+				{
+					test_double_miss();
+
+				}
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+				{
+					test_game_over();
+
+				}
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+				{
+					test_difficulty();
+
 				}
 
 				// Generating fruits
